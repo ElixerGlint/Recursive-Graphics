@@ -16,7 +16,7 @@ public class Main {
 		settings.setResizable(false);
 		settings.setTitle("settings");
 		settings.setSize(1000, 800);
-		Settings settingspanel = new Settings();
+		Settings settingspanel = new Settings(gamepanel);
 		settings.add(settingspanel);
 		settings.setVisible(true);
 
