@@ -7,16 +7,18 @@ import javax.imageio.ImageIO; //using collections
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import javafx.scene.paint.Color;
+
 public class Screen extends JPanel {
     private int depth;
     private int changeinangle;
     private int length;
+    private static Color[] colors = {Color.rgb(255, 0, 0), Color.rgb(255, 153, 0), Color.rgb(229, 255, 0), Color.rgb(0, 255, 0), Color.rgb(0, 0, 255), Color.rgb(174, 0, 255)};
 
     public Screen() {
-        depth = 7;
         changeinangle = 10;
         length = 100;
-
+        depth = 7;
     }
     public Screen(int runs, int changeangle, int len) {
         depth = runs;
@@ -36,10 +38,30 @@ public class Screen extends JPanel {
         if(total == current) {
             return;
         }
+        
+        if(current%6 == 0) {
+            g.setColor(java.awt.Color.RED);
+        }
+        if(current%6 == 1) {
+            g.setColor(java.awt.Color.ORANGE);
+        }
+        if(current%6 == 2) {
+            g.setColor(java.awt.Color.YELLOW);
+        }
+        if(current%6 == 3) {
+            g.setColor(java.awt.Color.GREEN);
+        }
+        if(current%6 == 4) {
+            g.setColor(java.awt.Color.BLUE);
+        }
+        if(current%6 == 5) {
+            g.setColor(java.awt.Color.PINK);
+        }
 
-        g.setColor(Color.blue);
+
+
         g.drawLine(x, y, x - (int)(Math.cos(Math.toRadians(angle))*length), y + (int)(Math.sin(Math.toRadians(angle))*length)); 
-        g.setColor(Color.red);
+        
         g.drawLine(x, y, x + (int)(Math.cos(Math.toRadians(angle))*length), y + (int)(Math.sin(Math.toRadians(angle))*length)); 
 
         recursivetree(g, total, current + 1, x - (int)(Math.cos(Math.toRadians(angle))*length), y + (int)(Math.sin(Math.toRadians(angle))*length), length, angle + changeinangle);

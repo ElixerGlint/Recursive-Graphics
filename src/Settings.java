@@ -13,9 +13,9 @@ public class Settings extends JPanel {
     public Settings(Screen screen) {
         window = screen;
 
-        slider1 = new JSlider(0, 360, 50);
-        slider2 = new JSlider(1, 300, 120);
-        slider3 = new JSlider(1, 20, 10);
+        slider1 = new JSlider(0, 360, 10);
+        slider2 = new JSlider(1, 300, 100);
+        slider3 = new JSlider(1, 20, 7);
 
 
         setLayout(new GridLayout(3, 2)); // 3 sliders and labels
