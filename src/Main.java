@@ -12,9 +12,8 @@ public class Main {
 		window.setVisible(true);
 
 
-		while(true) {
-			window.repaint();
-			// Thread.sleep(4);
-		}
+		
+		window.repaint();
+		
 	}
 }

@@ -8,19 +8,49 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class Screen extends JPanel {
+    private int totalruns;
+    private int changeinangle;
 
-
-
-
-
-
-
+    public Screen() {
+        totalruns = 7;
+        changeinangle = 10;
+    }
+    public Screen(int runs, int changeangle) {
+        totalruns = runs;
+        changeinangle = changeangle;
+    }
 
 
     public void paintComponent(Graphics g) { //paints everything
 		super.paintComponent(g);
-        g.fillRect(100, 100, 200, 200);
+        recursivetree(g, totalruns, 0, 500, 600, 100, 270);
     }
 
 
+
+    public void recursivetree(Graphics g, int total, int current, int x, int y, int length, int angle) {
+        if(total == current) {
+            return;
+        }
+
+        g.drawLine(x, y, x - (int)(Math.cos(Math.toRadians(angle))*length), y + (int)(Math.sin(Math.toRadians(angle))*length)); 
+        g.drawLine(x, y, x + (int)(Math.cos(Math.toRadians(angle))*length), y + (int)(Math.sin(Math.toRadians(angle))*length)); 
+
+        recursivetree(g, total, current + 1, x - (int)(Math.cos(Math.toRadians(angle))*length), y + (int)(Math.sin(Math.toRadians(angle))*length), length, angle + changeinangle);
+        recursivetree(g, total, current + 1, x + (int)(Math.cos(Math.toRadians(angle))*length), y + (int)(Math.sin(Math.toRadians(angle))*length), length, angle + changeinangle);
+
+    }
+
+    public int getTotalruns() {
+        return totalruns;
+    }
+    public void setTotalruns(int totalruns) {
+        this.totalruns = totalruns;
+    }
+    public int getChangeinangle() {
+        return changeinangle;
+    }
+    public void setChangeinangle(int changeinangle) {
+        this.changeinangle = changeinangle;
+    }
 }
