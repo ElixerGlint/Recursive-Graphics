@@ -13,7 +13,7 @@ public class Settings extends JPanel {
     public Settings(Screen screen) {
         window = screen;
 
-        slider1 = new JSlider(0, 100, 50);
+        slider1 = new JSlider(0, 360, 50);
         slider2 = new JSlider(0, 100, 50);
         slider3 = new JSlider(0, 100, 50);
 
@@ -40,6 +40,8 @@ public class Settings extends JPanel {
         slider2.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
                 System.out.println("Slider 2 value: " + slider2.getValue());
+                window.setLength(slider1.getValue());
+                screen.repaint();
             }
         });
 
