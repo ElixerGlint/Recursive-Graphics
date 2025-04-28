@@ -14,8 +14,8 @@ public class Settings extends JPanel {
         window = screen;
 
         slider1 = new JSlider(0, 360, 50);
-        slider2 = new JSlider(0, 100, 50);
-        slider3 = new JSlider(0, 100, 50);
+        slider2 = new JSlider(1, 300, 120);
+        slider3 = new JSlider(1, 20, 10);
 
 
         setLayout(new GridLayout(3, 2)); // 3 sliders and labels
@@ -25,7 +25,7 @@ public class Settings extends JPanel {
         add(slider1);
         add(new JLabel("Length:"));
         add(slider2);
-        add(new JLabel("Hue Shift"));
+        add(new JLabel("Depth"));
         add(slider3);
 
         slider1.addChangeListener(new ChangeListener() {
@@ -40,7 +40,8 @@ public class Settings extends JPanel {
         slider2.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
                 System.out.println("Slider 2 value: " + slider2.getValue());
-                window.setLength(slider1.getValue());
+                window.setLength(slider2.getValue());
+                System.out.println(window.getLength());
                 screen.repaint();
             }
         });
@@ -48,6 +49,10 @@ public class Settings extends JPanel {
         slider3.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
                 System.out.println("Slider 3 value: " + slider3.getValue());
+                window.setdepth(slider3.getValue());
+                screen.repaint();
+
+
             }
         });
     }
