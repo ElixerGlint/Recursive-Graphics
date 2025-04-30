@@ -7,13 +7,12 @@ import javax.imageio.ImageIO; //using collections
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import javafx.scene.paint.Color;
 
 public class Screen extends JPanel {
     private int depth;
     private int changeinangle;
     private int length;
-    private static Color[] colors = {Color.rgb(255, 0, 0), Color.rgb(255, 153, 0), Color.rgb(229, 255, 0), Color.rgb(0, 255, 0), Color.rgb(0, 0, 255), Color.rgb(174, 0, 255)};
+    
 
     public Screen() {
         changeinangle = 10;

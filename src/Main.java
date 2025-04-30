@@ -21,14 +21,13 @@ public class Main {
 		if(whichcolor.equals("Manual")) {
 			JFrame settings = new JFrame();
 			settings.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			settings.setResizable(false);
 			settings.setTitle("settings");
-			settings.setSize(1000, 800);
+			settings.setSize(400, 400);
 			Settings settingspanel = new Settings(gamepanel);
 			settings.add(settingspanel);
 			settings.setVisible(true);
 		}
-
+		
 		else {
 			while(true) {
 				gamepanel.setChangeinangle(gamepanel.getChangeinangle()+1);
@@ -41,7 +40,7 @@ public class Main {
 		}
 
 		
-
+		
 		
 		window.repaint();
 		
