@@ -19,11 +19,13 @@ public class Screen extends JPanel {
         changeinangle = 10;
         length = 100;
         depth = 7;
+        calcbranches();
     }
     public Screen(int runs, int changeangle, int len) {
         depth = runs;
         changeinangle = changeangle;
         length = len;
+        calcbranches();
     }
 
 
@@ -35,7 +37,6 @@ public class Screen extends JPanel {
     }
 
     public void calcbranches() {
-        System.out.println("hi");
         int output = 0;
 
         int temp = depth;
