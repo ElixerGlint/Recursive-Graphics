@@ -23,36 +23,35 @@ public class Settings extends JPanel {
 
         add(new JLabel("Angle:"));
         add(slider1);
-        add(new JLabel("Length:"));
+        add(new JLabel("Length (zoom):"));
         add(slider2);
         add(new JLabel("Depth"));
         add(slider3);
 
-        slider1.addChangeListener(new ChangeListener() {
+        slider1.addChangeListener(new ChangeListener() { //angle
             public void stateChanged(ChangeEvent e) {
 
-                System.out.println("Slider 1 value: " + slider1.getValue());
+                // System.out.println("Slider 1 value: " + slider1.getValue());
                 window.setChangeinangle(slider1.getValue());
                 screen.repaint();
             }
         });
 
-        slider2.addChangeListener(new ChangeListener() {
+        slider2.addChangeListener(new ChangeListener() { // length
             public void stateChanged(ChangeEvent e) {
-                System.out.println("Slider 2 value: " + slider2.getValue());
+                // System.out.println("Slider 2 value: " + slider2.getValue());
                 window.setLength(slider2.getValue());
-                System.out.println(window.getLength());
+                // System.out.println(window.getLength());
                 screen.repaint();
             }
         });
 
-        slider3.addChangeListener(new ChangeListener() {
+        slider3.addChangeListener(new ChangeListener() { //depth
             public void stateChanged(ChangeEvent e) {
-                System.out.println("Slider 3 value: " + slider3.getValue());
+                // System.out.println("Slider 3 value: " + slider3.getValue());
                 window.setdepth(slider3.getValue());
+                window.calcbranches();
                 screen.repaint();
-
-
             }
         });
     }

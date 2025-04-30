@@ -12,6 +12,7 @@ public class Screen extends JPanel {
     private int depth;
     private int changeinangle;
     private int length;
+    private int branches;
     
 
     public Screen() {
@@ -29,6 +30,20 @@ public class Screen extends JPanel {
     public void paintComponent(Graphics g) { //paints everything
 		super.paintComponent(g);
         recursivetree(g, depth, 0, 500, 600, length, 270);
+        g.setColor(Color.white);
+        g.drawString("Total branches: " + branches, 10, 20);
+    }
+
+    public void calcbranches() {
+        System.out.println("hi");
+        int output = 0;
+
+        int temp = depth;
+        while(temp >= 1) {
+            output += Math.pow(2, temp-1);
+            temp--;
+        }
+        branches = output;
     }
 
 
