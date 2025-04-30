@@ -9,6 +9,8 @@ public class Settings extends JPanel {
     private JSlider slider1;
     private JSlider slider2;
     private JSlider slider3;
+    private JSlider slider4;
+    private JSlider slider5;
 
     public Settings(Screen screen) {
         window = screen;
@@ -16,9 +18,10 @@ public class Settings extends JPanel {
         slider1 = new JSlider(0, 360, 10);
         slider2 = new JSlider(1, 300, 100);
         slider3 = new JSlider(1, 20, 7);
+        slider4 = new JSlider(0, 5, 0);
+        slider5 = new JSlider(0, 360, 0);
 
-
-        setLayout(new GridLayout(3, 2)); // 3 sliders and labels
+        setLayout(new GridLayout(5, 2)); // 3 sliders and labels
 
 
         add(new JLabel("Angle:"));
@@ -27,6 +30,10 @@ public class Settings extends JPanel {
         add(slider2);
         add(new JLabel("Depth"));
         add(slider3);
+        add(new JLabel("Colorshift"));
+        add(slider4);
+        add(new JLabel("Fun amount"));
+        add(slider5);
 
         slider1.addChangeListener(new ChangeListener() { //angle
             public void stateChanged(ChangeEvent e) {
@@ -51,6 +58,24 @@ public class Settings extends JPanel {
                 // System.out.println("Slider 3 value: " + slider3.getValue());
                 window.setdepth(slider3.getValue());
                 window.calcbranches();
+                screen.repaint();
+            }
+        });
+
+        slider4.addChangeListener(new ChangeListener() { //depth
+            public void stateChanged(ChangeEvent e) {
+                // System.out.println("Slider 3 value: " + slider3.getValue());
+                window.setColorshift(slider4.getValue());
+                
+                screen.repaint();
+            }
+        });
+
+        slider5.addChangeListener(new ChangeListener() { //depth
+            public void stateChanged(ChangeEvent e) {
+                // System.out.println("Slider 3 value: " + slider3.getValue());
+                window.setCrazy(slider5.getValue());
+                
                 screen.repaint();
             }
         });
